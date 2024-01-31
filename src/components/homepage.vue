@@ -1,26 +1,27 @@
 
 <template>
  <div class="grid xl:flex xl:w-screen md:justify-center flex-wrap font-serif">
-  <div v-for="gerecht, index in getShuffledGerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="bg-gray-400 md:p-2 md:m-10 md:w-[30rem] md:min-h-[30rem] rounded-2xl shadow-black shadow-lg" >
+  <div v-for="gerecht, index in getShuffledGerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="bg-gray-400 md:p-2 md:m-10 md:w-[30rem] md:min-h-[30rem] rounded-2xl shadow-black shadow-lg hover:shadow-xl hover:shadow-orange-200 linear duration-200">
     <div class="">
      <!-- <img :src="getImgUrl(gerecht.img)" alt="gerecht.naam_gerecht"> -->
     </div>
-    <div class=" bg-orange-800 text-center p-2 ">
+    <div class=" text-center p-2">
       <h1 class="text-2xl font-bold">{{ gerecht.tietel }}</h1>
       <h3 class="text-xl font-bold">{{ gerecht.naam_gerecht }}</h3>
     </div>
-    <div class="">
-      <ul class="bg-orange-300">
+    <div class="bg-orange-300 md:rounded-xl md:p-2 ">
+      <ul class="">
         <p class="text-lg font-semibold pl-2">ingredienten:</p>
         <li class=" list-decimal mx-7" v-for="ingredient in gerecht.ingredienten" :key="ingredient"> {{ ingredient }}</li>
       </ul>
-      <div class="bg-orange-700 p-2 ">
+      <div class="md:p-2 border-t-black border-t-2">
         <p>Bereiding: {{ gerecht.bereiding }}</p>
       <p>Bereidings tijd: {{ gerecht.bereidingtijd }}</p>
       </div>
-      <p v-if="gerecht.rating !== 0">Likes: {{ gerecht.rating }}</p>
+      
     </div>
     <div class="">
+      <p class="px-2 p-1" v-if="gerecht.rating !== 0">Likes: {{ gerecht.rating }}</p>
       <button class="bg-green-500 px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="setRating(+1)">+1</button> 
       <button class="bg-red-500   px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="setRating(-1)">-1</button>
     </div>
