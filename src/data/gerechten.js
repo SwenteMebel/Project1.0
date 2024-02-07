@@ -7,7 +7,7 @@ const gerechtenData = {
             ingredienten: ['kaas', 'macaroni', 'tomaten', 'tomaten puree', 'gehakt'],
             bereiding: 'adfasdfas',
             bereidingtijd: '30 minuten',
-            img: '',
+            img: 'ovenschotel.jpg',
             favoriet: false,
             rating: 0,
         },

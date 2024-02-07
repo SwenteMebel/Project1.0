@@ -1,9 +1,9 @@
 
 <template>
- <div class="grid xl:flex xl:w-screen md:justify-center flex-wrap font-serif">
-  <div v-for="gerecht, index in getShuffledGerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="bg-gray-400 md:p-2 md:m-10 md:w-[30rem] md:min-h-[30rem] rounded-2xl shadow-black shadow-lg hover:shadow-xl hover:shadow-orange-200 linear duration-200">
+ <div class="grid xl:grid md:w-screen xl:w-screen md:justify-center flex-wrap font-serif">
+  <section v-for="gerecht, index in gerechtenData.gerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="md:relative  bg-gray-400 md:p-2 md:m-[10rem] md:my-[2rem] md:h-[100vh] md:max-w-[100vh] md:min-w-[60vh] md:w-screen rounded-2xl shadow-black shadow-lg hover:shadow-xl hover:shadow-orange-200 linear duration-200" >
     <div class="">
-     <!-- <img :src="getImgUrl(gerecht.img)" alt="gerecht.naam_gerecht"> -->
+     <img :src="getImgUrl(gerecht.img)" :alt="gerecht.naam_gerecht"> 
     </div>
     <div class=" text-center p-2">
       <h1 class="text-2xl font-bold">{{ gerecht.tietel }}</h1>
@@ -20,16 +20,20 @@
       </div>
       
     </div>
-    <div class="">
-      <p class="px-2 p-1" v-if="gerecht.rating !== 0">Likes: {{ gerecht.rating }}</p>
-      <button class="bg-green-500 px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="setRating(+1)">+1</button> 
-      <button class="bg-red-500   px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="setRating(-1)">-1</button>
+    
+    <div class="md:flex justify-end items-end ">
+      <div class="">
+          <span class="px-2 p-1" v-if="gerecht.rating !== 0">Likes: {{ gerecht.rating }}</span>
+          <button class="bg-green-500 px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="upRating(+1)">+1</button> 
+          <button class="bg-red-500   px-2 p-1 m-1 rounded-xl border-[0.1rem] border-black" @click="downRating(-1)">-1</button>
+        </div>
+        <div class="md:flex justify-end">
+          <button @click="addfavo()" v-if="gerecht.favoriet == false" class="bg-gray-700 text-white p-2 rounded-xl">Add Favoriet</button>
+          <button @click="removefavo()" v-if="gerecht.favoriet == true" class="bg-yellow-500 font-bold p-2 rounded-xl">YEEE! Favoriet</button>
+        </div>
     </div>
-    <div class="">
-      <button @click="addfavo()" v-if="gerecht.favoriet == false" class="bg-gray-700 text-white p-2 rounded-xl">Add Favoriet</button>
-      <button @click="removefavo()" v-if="gerecht.favoriet == true" class="bg-yellow-500 font-bold p-2 rounded-xl">YEEE! Favoriet</button>
-    </div>
-  </div>
+      
+  </section>
  </div>
 
 
@@ -55,39 +59,36 @@ export default{
 
   computed: {
     // pakt de eerste 5 van de array in de data gerechten.
-    getShuffledGerechten() {
-      const shuffledGerechten = this.shuffleArray([...this.gerechtenData.gerechten]);
-      return shuffledGerechten.slice(0, 4);
-    }
+
   },
+
+
   methods: {
     selectedGerechtenIndex(index){
       this.gerechtenIndex = index;
     },
 
-    // Shuffelt de array data gerechten door elkaar.
-    shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    },
 
-    setRating(value){
-      this.gerechtenData.gerechten[this.gerechtenIndex].rating += value;
+
+    upRating(){
+      this.gerechtenData.gerechten[this.gerechtenIndex].rating += 1;
+    },
+    downRating(){
+      this.gerechtenData.gerechten[this.gerechtenIndex].rating -= 1;
     },
     addfavo(){
-      this.gerechtenData.gerechten[this.gerechtenIndex].favoriet == true;
+      this.gerechtenData.gerechten[this.gerechtenIndex].favoriet = true;
     },
     removefavo(){
-      this.gerechtenData.gerechten[this.gerechtenIndex].favoriet == false;
+      this.gerechtenData.gerechten[this.gerechtenIndex].favoriet = false;
     }
 
   }
+
+  
 }
 
 
-
 </script>
+
 

@@ -1,10 +1,11 @@
 //Gedeelde map met functies 
-
 export default {
+
     methods: {
-        getImgUrl(img){
-            console.log('getImgUrl() word aangeroepen vanuit mixins map en bestand.');
-            return require('../assets/afbeeldingen/' + img);
+        async getImgUrl(img){
+            console.log('getImgUrl() word aangeroepen vanuit mixins map en bestand. met de img ' + img );
+            const { default: imageUrl } = await import(`@/assets/gerechtenimg/${img}`);
+            return imageUrl;
         },
    
 
