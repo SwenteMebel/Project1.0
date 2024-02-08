@@ -1,7 +1,7 @@
 
 <template>
- <div class="grid xl:grid md:w-screen xl:w-screen md:justify-center flex-wrap font-serif">
-  <section v-for="gerecht, index in gerechtenData.gerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="md:relative  bg-gray-400 md:p-2 md:m-[10rem] md:my-[2rem] md:h-[100vh] md:max-w-[100vh] md:min-w-[60vh] md:w-screen rounded-2xl shadow-black shadow-lg hover:shadow-xl hover:shadow-orange-200 linear duration-200" >
+ <div class="grid xl:grid md:w-screen xl:w-screen md:justify-center flex-wrap font-serif snap-y snap-mandatory">
+  <section v-for="gerecht, index in gerechtenData.gerechten" :key="gerecht.id" @click="selectedGerechtenIndex(index)" class="md:relative snap-always snap-center bg-gray-400 md:p-2 md:m-[10rem] md:my-[2rem] md:h-[100vh] md:max-w-[100vh] md:min-w-[60vh] md:w-screen rounded-2xl shadow-black shadow-lg hover:shadow-xl hover:shadow-orange-200 linear duration-200" >
     <div class="">
      <img :src="getImgUrl(gerecht.img)" :alt="gerecht.naam_gerecht"> 
     </div>
