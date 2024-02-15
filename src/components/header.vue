@@ -41,7 +41,9 @@
             openMenu(){
                 this.open = !this.open;
             }
-        }
+        },
+
+        
             
     }
   </script>
