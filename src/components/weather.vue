@@ -2,8 +2,8 @@
     <div class=" grid justify-center md:w-screen font-serif items-center md:h-[40rem] md:mt-[10rem] bg-salte-900">
         <div class=" md:w-[50rem] mt-10 p-10 md:h-[10rem] md:grid md:justify-center md:p-2">
             <h1 class="text-center text-2xl font-bold text-shadow-xl ">Find my weather!</h1>    
-            <input class='p-2 md:p-1 bg-sky-200 md:mt-3 md:w-[28rem] rounded-l-xl md:rounded-xl text-center text-lg focus:bg-sky-300' type="text" v-model.trim="placeName" placeholder="Search City"> 
-            <button class=' p-2 md:p-1 bg-sky-200 md:mt-3 md:w-[28rem] rounded-r-xl md:rounded-xl text-center text-lg text-semibold hover:bg-sky-300 linear duration-150' @click="ophalen(placeName)">Zoek</button>
+            <input class='p-2 md:p-1 bg-sky-200 md:mt-3 md:w-[28rem] rounded-l-xl md:rounded-xl text-center text-lg focus:bg-sky-300 shadow-md  focus:shadow-black' type="text" v-model.trim="placeName" placeholder="Search City"> 
+            <button class='p-2 md:p-1 bg-sky-200 md:mt-3 md:w-[28rem] rounded-r-xl md:rounded-xl text-center text-lg text-semibold hover:bg-sky-300 linear duration-150 shadow-md hover:shadow-lg hover:shadow-orange-300' @click="ophalen(placeName)">Zoek</button>
         </div>
         <!--<div v-if='!error()' class="">{{ errormsg }}</div>-->
         <div v-if='theWeather || theWeather.length >= 1' class="grid min-h-[30rem] md:min-h-[40rem]">
@@ -14,8 +14,8 @@
                         <span class="text-xl  font-semibold ml-2">{{ theWeather.name }} ({{ theWeather.sys.country }})</span>
                     </div>
                 
-                    <div class="flex border-t-2">
-                        <div class="flex items-center justify-center md:w-[20rem] w-[10rem] border-r-2">
+                    <div class="flex border-t-2 border-black">
+                        <div class="flex items-center justify-center md:w-[20rem] w-[10rem] border-r-2 border-black">
                             <span class="text-xl first-letter:capitalize font-bold">{{ theWeather.weather[0].description }}</span>
                         </div>
                         <div class="">
