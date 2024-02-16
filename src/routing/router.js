@@ -4,16 +4,21 @@ const routes = [
     {
         path: '',
         name: 'home',
-        component: () => import('../components/homepage.vue')
+        component: () => import('../components/homepage.vue') //lazy loading
     },
 
     {
         path: '/weather',
         name: 'weather',
-        component: () => import('../components/weather.vue')
+        component: () => import('../components/weather.vue')//lazy loading
 
     },
 
+    {
+        path: '/shoplist',
+        name: 'shoplist',
+        components: () => import('../components/shopList.vue')//lazy loading
+    },
 ]
 
 const router = createRouter({

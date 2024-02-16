@@ -12,9 +12,11 @@
         
       </span>
   
-      <ul class="md:flex md:items-center md:static bg-gray-900 absolute md:w-auto text-semibold w-full h-[5rem] top-14 duration-300 ease-in" :class="[open ? 'left-0' : 'left-[-100%]']">
+      <ul class="md:flex md:items-center md:static bg-gray-900 absolute md:w-auto text-semibold w-full h-auto top-14 duration-300 ease-in" :class="[open ? 'left-0' : 'left-[-100%]']">
         <li class="md:mx-4 md:my-0 p-1 mx-2 text-2xl font-semibold hover:text-orange-400 font-mono ease-linear duration-300"><router-link to="/">Gerechten</router-link></li>
+        <li class="md:mx-4 md:my-0 p-1 mx-2 text-2xl font-semibold hover:text-orange-400 font-mono ease-linear duration-300"><router-link to="/shoplist">Shoplist</router-link></li>
         <li class="md:mx-4 md:my-0 p-1 mx-2 text-2xl font-semibold hover:text-orange-400 font-mono ease-linear duration-300"><router-link to="/weather">Weather</router-link></li>
+        
         
       </ul>
   
